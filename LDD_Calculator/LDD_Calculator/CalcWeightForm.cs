@@ -128,6 +128,8 @@ namespace LDD_Calculator
             float currentWeight = 0f;
             Dictionary<string, string> weightInfo = new Dictionary<string, string>();
 
+            blockInfoFile.Close();
+
             foreach (KeyValuePair<string, string> block in blockInfo)
             {
                 try
@@ -168,19 +170,18 @@ namespace LDD_Calculator
                 {
                     IList<IWebElement> itemListElem = chromeDriver.FindElements(By.ClassName("pspItemNameLink"));
                     int count = 0;
-                    bool loopItemList = true;
                     string newBlockName = block.Key.ToLower().Replace(" ", "");
                     int newBlockNameLen = newBlockName.Length;
-                    while (loopItemList)
+                    while (count < itemListElem.Count)
                     {
-                        string newElemText = itemListElem[count].Text.ToLower().Replace(" ", "");
-                        int newElemTextLen = newElemText.Length;
-                        if (itemListElem[count].Text != "" && newElemText.Contains(newBlockName) && GetPercentageComplete(newBlockNameLen, newElemTextLen) > _percentSim)
+                        try
                         {
                             itemListElem[count].Click();
-                            loopItemList = false;
                         }
-                        count++;
+                        catch
+                        {
+                            count++;
+                        }
                     }
 
                     string tempWeightInfo = chromeDriver.FindElement(By.Id("item-weight-info")).Text;
@@ -216,7 +217,7 @@ namespace LDD_Calculator
             ChangeCtrlText(this, string.Format("{0} - Writing information to \'{1}\' - Block Types: {2}/{3} - Blocks: {4}/{5} - Project Weight: {6}g", ogTitle, _saveInfoPath, curBlockTypeCount, blockTypeCount, curBlockCount, blockCount, currentWeight));
 
             using (StreamWriter writer = new StreamWriter(_saveInfoPath)){
-                writer.Write(fileText + string.Format("Total Weight: {0}g", currentWeight));
+                writer.Write(fileText + string.Format("Total Weight: {0}g\nTotal Block Count: {1}", currentWeight, blockCount));
             }
 
             ChangeCtrlText(this, string.Format("{0} - Finished writing information to \'{1}\' - Block Types: {2}/{3} - Blocks: {4}/{5} - Project Weight: {6}g", ogTitle, _saveInfoPath, curBlockTypeCount, blockTypeCount, curBlockCount, blockCount, currentWeight));

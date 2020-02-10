@@ -31,3 +31,20 @@ E:\####Projects\Win Form Projects\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Ca
 E:\####Projects\Win Form Projects\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.csproj.CopyComplete
 E:\####Projects\Win Form Projects\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.exe
 E:\####Projects\Win Form Projects\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.pdb
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\bin\Debug\LDD_Calculator.exe.config
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\bin\Debug\LDD_Calculator.exe
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\bin\Debug\LDD_Calculator.pdb
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\bin\Debug\WebDriver.dll
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\bin\Debug\WebDriver.Support.dll
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\bin\Debug\WebDriver.xml
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\bin\Debug\WebDriver.Support.xml
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.csprojAssemblyReference.cache
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.CalcCostForm.resources
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.CalcWeightForm.resources
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.GenForm.resources
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.MainForm.resources
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.Properties.Resources.resources
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.csproj.GenerateResource.cache
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.csproj.CopyComplete
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.exe
+D:\###Github Repos\Lego-Digital-Designer-Calculator\LDD_Calculator\LDD_Calculator\obj\Debug\LDD_Calculator.pdb

@@ -130,10 +130,11 @@ namespace LDD_Calculator
 
             Dictionary<string, string> blockInfo = new Dictionary<string, string>();
 
-            ChangeCtrlText(this , string.Format("{0} - Generating block info", ogTitle));
+            ChangeCtrlText(this, string.Format("{0} - Generating block info", ogTitle));
 
             IWebElement stepElementsDiv = _chromeDriver.FindElement(By.XPath("//div[@class='stepelements']"));
             IList<IWebElement> allBiElements = stepElementsDiv.FindElements(By.XPath("div"));
+
 
             for (int i = 0; i < allBiElements.Count - 1; i++)
             {
@@ -142,27 +143,25 @@ namespace LDD_Calculator
 
                 IList<IWebElement> allTds = biElem.FindElements(By.XPath("table/tbody/tr/td"));
 
-                string[] seperator = { " - " };
-                string name = allTds[3].Text.Split(seperator, StringSplitOptions.RemoveEmptyEntries)[0].Trim();
-                string amount = allTds[0].Text.Replace("x", "");
+                string blockID = allTds[2].Text;
+                string blockQuantity = allTds[0].Text.Replace("x", "");
 
                 try
                 {
-                    blockInfo.Add(name, amount);
+                    blockInfo.Add(blockID, blockQuantity);
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine("Error: " + e.Message);
-                    string value = "";
-                    blockInfo.TryGetValue(name, out value);
-                    string newValue = (int.Parse(amount) + int.Parse(value)).ToString();
+                    blockInfo.TryGetValue(blockID, out string value);
+                    string newValue = (int.Parse(blockQuantity) + int.Parse(value)).ToString();
 
-                    blockInfo.Remove(name);
-                    blockInfo.Add(name, newValue);
+                    blockInfo.Remove(blockID);
+                    blockInfo.Add(blockID, newValue);
                 }
             }
 
-            ChangeCtrlText(this , string.Format("{0} - Storing information to \"{1}\"", ogTitle, _saveLoc));
+            ChangeCtrlText(this, string.Format("{0} - Storing information to \"{1}\"", ogTitle, _saveLoc));
 
             string allBlockInfo = "";
 
@@ -179,6 +178,8 @@ namespace LDD_Calculator
                 sw.Close();
                 ChangeCtrlText(this , string.Format("{0} - Finished writing information to \"{1}\"", ogTitle, _saveLoc));
                 MessageBox.Show("Successfully written all block information to " + _saveLoc, "Saved successfully!!!");
+
+                sw.Close();
             }
             catch (Exception e)
             {

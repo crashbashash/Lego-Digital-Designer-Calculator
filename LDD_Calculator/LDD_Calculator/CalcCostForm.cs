@@ -74,6 +74,8 @@ namespace LDD_Calculator
             float currentCost = 0f;
             Dictionary<string, string> costInfo = new Dictionary<string, string>();
 
+            blockInfoFile.Close();
+
             foreach (KeyValuePair<string, string> block in blockInfo)
             {
                 string blockName = block.Key;
@@ -130,11 +132,10 @@ namespace LDD_Calculator
                         if (elem.Text.Replace(" ", "") != "")
                         {
                             string[] lines = elem.Text.Split('\n');
-                            string[] itemInfo = lines[1].Split(' ');
+                            string[] itemInfo = lines[2].Split(new string[] { "GBP" }, StringSplitOptions.None);
                             string price = itemInfo[itemInfo.Length - 1].Replace(" ", "").Replace("+", "");
-                            string name = lines[0];
                             
-                            if (price != "-" && blockName.Replace(" ", "").ToLower().Contains(name.Replace(" ", "").Replace("\r", "").ToLower()) && GetPercentageComplete(blockName.Length, name.Length) >= _percentSim)
+                            if (price != "-")
                             {
                                 blockCost = float.Parse(price);
                                 fail = false;
@@ -174,7 +175,7 @@ namespace LDD_Calculator
 
             using (StreamWriter writer = new StreamWriter(_saveInfoPath))
             {
-                writer.Write(fileText + string.Format("Total Cost: £{0}", currentCost));
+                writer.Write(fileText + string.Format("Total Cost: £{0}\nTotal Block Count: {1}", currentCost, blockCount));
             }
 
             ChangeCtrlText(this, string.Format("{0} - Finished writing information to \'{1}\' - Block Types: {2}/{3} - Blocks: {4}/{5} - Project Cost: £{6}", ogTitle, _saveInfoPath, curBlockTypeCount, blockTypeCount, curBlockCount, blockCount, currentCost));
